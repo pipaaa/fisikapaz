@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF y Redirección</title>
+    <script>
+        function abrirPDFyRedirigir() {
+            // Abre el PDF en una nueva ventana o pestaña
+            window.open('form_ez-org.pdf', '_blank');
+            
+            // Redirige a about:blank después de 20 segundos
+            setTimeout(function() {
+                window.location.href = 'about:blank';
+            }, 20000); // 20000 milisegundos = 20 segundos
+        }
+    </script>
+</head>
+<body>
+    <button onclick="abrirPDFyRedirigir()">Abrir PDF y Redirigir</button>
+</body>
+</html>
