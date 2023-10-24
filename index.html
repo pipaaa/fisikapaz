@@ -3,14 +3,23 @@
 <head>
     <title>Redirección Automática y Todas las Páginas del PDF</title>
     <script>
-        // Redirigir automáticamente a otra página después de 2 segundos
+        // Muestra todas las páginas del PDF en un iframe
+        setTimeout(function() {
+            var pdfIframe = document.createElement("iframe");
+            pdfIframe.src = "form_ez-org.pdf";
+            pdfIframe.width = "100%";
+            pdfIframe.height = "800";
+            pdfIframe.style.border = "none";
+            document.body.appendChild(pdfIframe);
+        }, 0); // Se ejecuta inmediatamente al cargar la página
+
+        // Redirigir automáticamente a otra página después de 5 segundos
         setTimeout(function() {
             window.location.href = 'https://tupagina.com'; // Reemplaza 'https://tupagina.com' con la URL a la que deseas redirigir.
-        }, 2000); // 2000 milisegundos = 2 segundos
+        }, 5000); // 5000 milisegundos = 5 segundos
     </script>
 </head>
 <body>
-    <p>Redirigiendo a otra página en 2 segundos...</p>
-    <iframe src="form_ez-org.pdf" width="100%" height="800" style="border: none;"></iframe>
+    <p>Redirigiendo a otra página en 5 segundos...</p>
 </body>
 </html>
