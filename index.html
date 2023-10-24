@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PDF y Cierre Automático</title>
+    <title>Redirección Automática</title>
     <script>
-        function abrirPDFyCerrar() {
-            // Abre el PDF en una nueva ventana o pestaña
-            var pdfWindow = window.open('form_ez-org.pdf', '_blank');
-            
-            // Cierra la ventana emergente después de 5 segundos
-            setTimeout(function() {
-                pdfWindow.close();
-            }, 5000); // 5000 milisegundos = 5 segundos
-        }
+        // Redirigir automáticamente a otra página después de 2 segundos
+        setTimeout(function() {
+            window.location.href = 'https://tupagina.com'; // Reemplaza 'https://tupagina.com' con la URL a la que deseas redirigir.
+        }, 2000); // 2000 milisegundos = 2 segundos
     </script>
 </head>
 <body>
-    <button onclick="abrirPDFyCerrar()">Abrir PDF y Cerrar</button>
+    <p>Redirigiendo a otra página en 2 segundos...</p>
 </body>
 </html>
