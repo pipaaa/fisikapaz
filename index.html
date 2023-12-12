@@ -9,7 +9,6 @@
             font-family: 'Arial', sans-serif;
             background-color: #f0f0f0;
             padding: 20px;
-            text-align: center;
         }
 
         form {
@@ -45,31 +44,63 @@
         button:hover {
             background-color: #45a049;
         }
+
+        #confirmationMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
     <form id="orderForm" onsubmit="return submitOrder()">
-        <!-- Agrega tus campos de entrada aquí -->
-        <label for="name">Nombre y Apellido:</label>
-        <input type="text" id="name" name="name" required>
-
-        <!-- Otros campos del formulario -->
+        <!-- ... Tus campos de entrada aquí ... -->
 
         <button type="submit">Confirmar Compra</button>
     </form>
+
+    <div id="confirmationMessage">
+        <!-- ... Mensaje de confirmación aquí ... -->
+    </div>
 
     <script>
         function submitOrder() {
             // Obtener los valores ingresados por el usuario
             const name = document.getElementById('name').value;
+            // ... Obtener otros valores ...
 
-            // Otros campos del formulario
+            // Simular una respuesta del servidor (en el mundo real, esto debería ser manejado por un backend seguro)
+            const orderNumber = generateOrderNumber();
 
-            // Puedes enviar los datos al servidor aquí utilizando JavaScript
-            // Por ejemplo, utilizando AJAX
+            // Mostrar el mensaje de confirmación
+            showConfirmationMessage(name, orderNumber);
 
-            // Descomentar la siguiente línea para evitar que el formulario se envíe realmente
-            // return false;
+            return false; // Para evitar que el formulario se envíe realmente
+        }
+
+        function showConfirmationMessage(name, orderNumber) {
+            // Ocultar el formulario
+            document.getElementById('orderForm').style.display = 'none';
+
+            // Mostrar el mensaje de confirmación
+            const confirmationDiv = document.getElementById('confirmationMessage');
+            confirmationDiv.style.display = 'block';
+
+            // Llenar el mensaje con la información de la orden
+            confirmationDiv.innerHTML = `
+                <h2>Gabity - Confirmación de Entradas</h2>
+                <p><strong>Nombre:</strong> ${name}</p>
+                <p><strong>Número de Pedido:</strong> ${orderNumber}</p>
+                <!-- ... Otros detalles de la confirmación ... -->
+            `;
+        }
+
+        function generateOrderNumber() {
+            // Generar un número aleatorio (solo para propósitos de demostración)
+            return Math.floor(Math.random() * 1000000);
         }
     </script>
 </body>
